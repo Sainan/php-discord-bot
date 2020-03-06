@@ -1,0 +1,6 @@
+.idea/
+plugins/ReactionRoles.php
+vendor/
+.sales_queue_message_id.txt
+composer.lock
+token.txt

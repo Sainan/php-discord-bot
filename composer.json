@@ -1,0 +1,17 @@
+{
+	"name": "hell-sh/discord-bot",
+	"description": "Easily write your own Discord bot in PHP.",
+	"autoload": {
+		"psr-4": {
+			"DiscordBot\\": "src/"
+		}
+	},
+	"require": {
+		"php": "^7.1",
+		"ext-curl": "*",
+		"ext-json": "*",
+		"hell-sh/asyncore": "^2.0",
+		"hell-sh/hotswapp": "^1.1",
+		"hell-sh/websocket": "^0.5"
+	}
+}
