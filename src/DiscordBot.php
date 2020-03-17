@@ -55,6 +55,7 @@ class DiscordBot
 	 *
 	 * @param string $token
 	 * @throws Exception
+	 * @noinspection PhpUnusedLocalVariableInspection
 	 */
 	function __construct(string $token)
 	{
@@ -85,6 +86,7 @@ class DiscordBot
 			return false;
 		});
 		$this->token = $token;
+		$token = "[REDACTED]";
 		$this->condition->add(function()
 		{
 			if(!$this->gateway instanceof ServerConnection || $this->gateway->status != Connection::STATUS_OPEN)
