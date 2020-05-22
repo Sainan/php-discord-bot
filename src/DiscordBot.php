@@ -144,6 +144,12 @@ class DiscordBot
 								$member->voice_channel_id = $data["channel_id"];
 								PluginManager::fire(new VoiceChannelSwitchEvent($member, $prev_channel));
 								break;
+							case "CHANNEL_CREATE":
+								$this->guilds[$data["guild_id"]]->channels[$data["id"]] = new Channel($this->guilds[$data["guild_id"]], $data);
+								break;
+							case "CHANNEL_DELETE":
+								unset($this->guilds[$data["guild_id"]]->channels[$data["id"]]);
+								break;
 							case "MESSAGE_CREATE":
 								$channel = $this->guilds[$data["guild_id"]]->channels[$data["channel_id"]];
 								$message = new Message($channel, $data);
