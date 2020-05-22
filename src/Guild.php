@@ -60,11 +60,11 @@ class Guild
 	{
 		if($user instanceof Presence)
 		{
-			return $this->members[$user->user_id];
+			return @$this->members[$user->user_id];
 		}
 		if($user instanceof User)
 		{
-			return $this->members[$user->id];
+			return @$this->members[$user->id];
 		}
 		throw new InvalidArgumentException("Unexpected argument type for Guild::getMember");
 	}
