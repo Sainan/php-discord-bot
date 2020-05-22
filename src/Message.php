@@ -37,11 +37,12 @@ class Message
 	 * Asynchronously adds a reaction to the message.
 	 *
 	 * @param string $emoji The Unicode character to use for the reaction.
+	 * @param null|callable $callback
 	 * @return Message $this
 	 */
-	function addReaction(string $emoji): Message
+	function addReaction(string $emoji, ?callable $callback = null): Message
 	{
-		$this->channel->guild->discord->http("PUT", "/channels/{$this->channel->id}/messages/{$this->id}/reactions/".rawurlencode($emoji)."/@me");
+		$this->channel->guild->discord->http("PUT", "/channels/{$this->channel->id}/messages/{$this->id}/reactions/".rawurlencode($emoji)."/@me", null, $callback);
 		return $this;
 	}
 
