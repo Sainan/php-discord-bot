@@ -5,7 +5,7 @@ Easily write your own Discord bot in PHP.
 ## Setup
 
 1. Clone
-2. `composer install --no-dev`
+2. `composer install`
 3. Register an application on [Discord's Developer Portal](https://discordapp.com/developers/applications/).
 4. Select "Bot" and click "Add Bot."
 5. Reveal the token, and copy it.
