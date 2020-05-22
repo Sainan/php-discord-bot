@@ -1,7 +1,7 @@
 <?php
 /**
  * If users @-mention this bot, it will post the message to Codename: Clippy and respond accordingly.
- * Learn more at https://playground.timmyrs.de/codename-clippy/
+ * Learn more at https://playground.hell.sh/codename-clippy/
  *
  * @var Plugin $this
  */
@@ -17,7 +17,7 @@ $this->on(function(MessageCreateEvent $event)
 		$event->channel->indicateTyping();
 		$ch = curl_init();
 		curl_setopt_array($ch, [
-			CURLOPT_URL => "https://playground.timmyrs.de/codename-clippy/talk",
+			CURLOPT_URL => "https://playground.hell.sh/codename-clippy/talk",
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_POST => true,
 			CURLOPT_POSTFIELDS => "message=".rawurlencode($event->message->getContent(true))
