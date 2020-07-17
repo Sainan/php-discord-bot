@@ -236,7 +236,7 @@ class DiscordBot
 	 */
 	private function connect(): void
 	{
-		$this->gateway = new ServerConnection(json_decode(file_get_contents("https://discordapp.com/api/v6/gateway"), true)["url"]."?v=6&encoding=json");
+		$this->gateway = new ServerConnection(json_decode(file_get_contents("https://discord.com/api/v6/gateway"), true)["url"]."?v=6&encoding=json");
 		$this->reconnect_queued = false;
 	}
 
@@ -247,7 +247,7 @@ class DiscordBot
 		$ch = curl_init();
 		curl_setopt_array($ch, [
 			CURLOPT_CUSTOMREQUEST => $method,
-			CURLOPT_URL => "https://discordapp.com/api/v6".$path,
+			CURLOPT_URL => "https://discord.com/api/v6".$path,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HTTPHEADER => [
 				"Authorization: Bot ".$this->token,
