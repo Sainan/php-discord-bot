@@ -7,7 +7,7 @@
 		}
 	},
 	"require": {
-		"php": ">=8.0",
+		"php": ">=7.1",
 		"ext-curl": "*",
 		"ext-json": "*",
 		"hell-sh/asyncore": "^2.0",
