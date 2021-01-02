@@ -15,6 +15,6 @@
 		"hell-sh/websocket": "^0.5"
 	},
 	"require-dev": {
-		"sainan/clippy": "dev-senpai"
+		"sainan/clippy": "^0.1"
 	}
 }
