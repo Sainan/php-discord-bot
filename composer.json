@@ -7,11 +7,14 @@
 		}
 	},
 	"require": {
-		"php": ">=7.1",
+		"php": ">=8.0",
 		"ext-curl": "*",
 		"ext-json": "*",
 		"hell-sh/asyncore": "^2.0",
 		"hell-sh/hotswapp": "^1.1",
 		"hell-sh/websocket": "^0.5"
+	},
+	"require-dev": {
+		"sainan/clippy": "dev-senpai"
 	}
 }
