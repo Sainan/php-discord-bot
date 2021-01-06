@@ -14,7 +14,7 @@ $this->on(function(MessageCreateEvent $event)
 {
 	if($event->message->mentionsMe() && $event->message->getAuthor() instanceof Member)
 	{
-		$event->channel->indicateTyping();
+		//$event->channel->indicateTyping();
 		$command = Command::match($event->message->getContent(true));
 		switch($command::class)
 		{
