@@ -25,10 +25,10 @@ $this->on(function(MessageCreateEvent $event)
 					$event->channel->sendMessage($event->message->getAuthor()->getMention()." Why don't you do it yourself? ;)");
 					break;
 				}
-				if($command->amount > 99)
+				if($command->amount < 1 || $command->amount > 99)
 				{
 					$event->channel->sendMessage($event->message->getAuthor()
-																->getMention()." I'm sorry, I can't delete more than 99 messages at once. :|");
+																->getMention()." I'm sorry, I need a number between 1 and 99. :|");
 					break;
 				}
 				$event->channel->getMessagesBefore($event->message, $command->amount, function($messages) use (&$event)
