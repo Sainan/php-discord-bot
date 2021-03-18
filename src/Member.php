@@ -2,6 +2,9 @@
 namespace DiscordBot;
 use Asyncore\
 {Asyncore, Loop};
+use DiscordBot\Event\
+{MemberUpdateNickEvent, MemberUpdateRolesEvent};
+use hotswapp\PluginManager;
 class Member
 {
 	public $guild;
@@ -37,10 +40,12 @@ class Member
 		if($this->nick !== @$data["nick"])
 		{
 			$this->nick = @$data["nick"];
+			PluginManager::fire(new MemberUpdateNickEvent($this));
 		}
 		if($this->roles !== $data["roles"])
 		{
 			$this->roles = $data["roles"];
+			PluginManager::fire(new MemberUpdateRolesEvent($this));
 		}
 	}
 

@@ -3,7 +3,7 @@ namespace DiscordBot;
 use Asyncore\
 {Asyncore, Condition};
 use DiscordBot\Event\
-{GuildDiscoveryEvent, MemberAddEvent, MemberRemoveEvent, MessageCreateEvent, ReactionAddEvent, ReactionRemoveEvent, VoiceChannelSwitchEvent};
+{GuildDiscoveryEvent, MemberAddEvent, MemberRemoveEvent, MemberUpdateEvent, MessageCreateEvent, ReactionAddEvent, ReactionRemoveEvent, VoiceChannelSwitchEvent};
 use Exception;
 use hotswapp\PluginManager;
 use LogicException;
@@ -130,6 +130,7 @@ class DiscordBot
 								break;
 							case "GUILD_MEMBER_UPDATE":
 								$this->guilds[$data["guild_id"]]->members[$data["user"]["id"]]->update($data);
+								PluginManager::fire(new MemberUpdateEvent($this->guilds[$data["guild_id"]]->members[$data["user"]["id"]]));
 								break;
 							case "GUILD_MEMBER_REMOVE":
 								PluginManager::fire(new MemberRemoveEvent($this->guilds[$data["guild_id"]]->members[$data["user"]["id"]]));
