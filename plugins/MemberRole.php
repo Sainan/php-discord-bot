@@ -6,7 +6,7 @@
 use hotswapp\Plugin;
 use DiscordBot\
 {Event\MemberAddEvent, Event\MemberUpdateEvent, Role};
-$this->member_role_blacklist = is_file("MemberRole Blacklist.json") ? json_decode(file_get_contents("MemberRole Blacklist.json")) : [];
+$this->member_role_blacklist = is_file("MemberRole Blacklist.json") ? json_decode(file_get_contents("MemberRole Blacklist.json"), true) : [];
 $this->on(function(MemberAddEvent $event)
 {
 	if(!array_key_exists($event->member->user_id, $this->member_role_blacklist))
