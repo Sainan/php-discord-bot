@@ -101,4 +101,12 @@ class Guild
 	{
 		return @$this->channels[$this->afk_channel_id];
 	}
+
+	function addBan(string $user_id, string $reason = "", int $delete_message_days = 0): void
+	{
+		$this->discord->http("PUT", "/guilds/{$this->id}/bans/{$user_id}", [
+			"reason" => $reason,
+			"delete_message_days" => $delete_message_days,
+		]);
+	}
 }

@@ -12,7 +12,7 @@ use hotswapp\
 {Event, Plugin};
 $this->on(function(MessageCreateEvent $event)
 {
-	if($event->message->mentionsMe() && $event->message->getAuthor() instanceof Member)
+	if(!@$event->handled && $event->message->mentionsMe() && $event->message->getAuthor() instanceof Member)
 	{
 		//$event->channel->indicateTyping();
 		$command = Command::match($event->message->getContent(true));
